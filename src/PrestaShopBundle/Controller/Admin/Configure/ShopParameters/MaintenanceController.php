@@ -26,6 +26,7 @@
 
 namespace PrestaShopBundle\Controller\Admin\Configure\ShopParameters;
 
+use Tools;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
 use PrestaShopBundle\Security\Annotation\DemoRestricted;
@@ -65,7 +66,7 @@ class MaintenanceController extends FrameworkBundleAdminController
             'help_link' => $this->generateSidebarLink('AdminMaintenance'),
             'requireFilterStatus' => false,
             'form' => $form->createView(),
-            'currentIp' => $request->getClientIp(),
+            'currentIp' => Tools::getRemoteAddr()
         ]);
     }
 
